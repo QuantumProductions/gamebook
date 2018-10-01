@@ -36,10 +36,11 @@ branch(Remaining, Width) ->
 
 connection(0, _Width) -> fin;
 connection(Remaining, Width) ->
-  case Remaining < ?MAX_WIDTH of
-    true -> branch(Remaining, Width + 1);
-    false -> segment([], Remaining, Width - 1)
-  end.
+ branch(Remaining, Width + 1).
+  % case Remaining < ?MAX_WIDTH of
+  %   true ->
+  %   false -> segment([], Remaining, Width - 1)
+  % end.
 
 % branching every 3 steps
 segment(Steps, 0, _Width) -> Steps;
